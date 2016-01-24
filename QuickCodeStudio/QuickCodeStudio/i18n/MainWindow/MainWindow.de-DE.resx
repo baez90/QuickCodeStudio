@@ -106,4 +106,25 @@
   <data name="RTRunHeader" xml:space="preserve">
     <value>Ausführen</value>
   </data>
+  <data name="RGStartHeader" xml:space="preserve">
+    <value>Starten/Beenden</value>
+  </data>
+  <data name="RBRunLabel" xml:space="preserve">
+    <value>Starten</value>
+  </data>
+  <data name="RBStopLabel" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+  <data name="RGPanelsHeader" xml:space="preserve">
+    <value>Seitenleisten</value>
+  </data>
+  <data name="RBShowPanelsLabel" xml:space="preserve">
+    <value>Eigenschaften</value>
+  </data>
+  <data name="RBNewFileLabel" xml:space="preserve">
+    <value>Neue Datei</value>
+  </data>
+  <data name="RGFileMgmtHeader" xml:space="preserve">
+    <value>Dateiverwaltung</value>
+  </data>
 </root>

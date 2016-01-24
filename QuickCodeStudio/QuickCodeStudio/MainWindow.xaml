@@ -1,66 +1,93 @@
 ﻿<RibbonWindow x:Class="QuickCodeStudio.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:QuickCodeStudio"
-              xmlns:i18n="clr-namespace:QuickCodeStudio.i18n.MainWindow"
-        xmlns:avalonDock="http://schemas.xceed.com/wpf/xaml/avalondock"
-        xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200" DataContext="{Binding Main, Source={StaticResource Locator}}">
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+              xmlns:i18N="clr-namespace:QuickCodeStudio.i18n.MainWindow"
+              xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+              mc:Ignorable="d"
+              Title="QuickCodeStudio" Height="800" Width="1200"
+              Icon="{DynamicResource MainWindowImg}"
+              DataContext="{Binding Main, Source={StaticResource Locator}}">
+    <RibbonWindow.Resources>
+        <ResourceDictionary Source="Resources/MainWindowResources.xaml" />
+    </RibbonWindow.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Ribbon>
             <Ribbon.ApplicationMenu>
-                <RibbonApplicationMenu>
-                    <RibbonApplicationMenuItem Header="Quit"/>
+                <RibbonApplicationMenu IsMainMenu="True">
+                    <RibbonApplicationMenuItem Header="Quit" />
                 </RibbonApplicationMenu>
             </Ribbon.ApplicationMenu>
-            <RibbonTab Header="{x:Static i18n:MainWindow.RTStartHeader}">
-                <RibbonGroup>
-                    <RibbonButton Label="Demo"></RibbonButton>
+            
+            <RibbonTab Header="{x:Static i18N:MainWindow.RTStartHeader}">
+                
+                <RibbonGroup Header="{x:Static i18N:MainWindow.RGFileMgmtHeader}">
+                    
+                    <RibbonButton Label="{x:Static i18N:MainWindow.RBNewFileLabel}"
+                                  LargeImageSource="{DynamicResource NewFileImg}"
+                                  SmallImageSource="{DynamicResource NewFileImg}" />
                 </RibbonGroup>
             </RibbonTab>
-            <RibbonTab Header="{x:Static i18n:MainWindow.RTViewHeader}">
+            <RibbonTab Header="{x:Static i18N:MainWindow.RTViewHeader}">
                 
+                <RibbonGroup Header="{x:Static i18N:MainWindow.RGPanelsHeader}">
+                    
+                    <RibbonButton Label="{x:Static i18N:MainWindow.RBShowPanelsLabel}"
+                                  LargeImageSource="{DynamicResource PropertiesImg}"
+                                  SmallImageSource="{DynamicResource PropertiesImg}" />
+                </RibbonGroup>
             </RibbonTab>
-            <RibbonTab Header="{x:Static i18n:MainWindow.RTRunHeader}">
-
+            <RibbonTab Header="{x:Static i18N:MainWindow.RTRunHeader}">
+                
+                <RibbonGroup Header="{x:Static i18N:MainWindow.RGStartHeader}">
+                    
+                    <RibbonButton Label="{x:Static i18N:MainWindow.RBRunLabel}"
+                                  LargeImageSource="{DynamicResource RunImg}"
+                                  SmallImageSource="{DynamicResource RunImg}" />
+                    
+                    <RibbonButton Label="{x:Static i18N:MainWindow.RBStopLabel}"
+                                  LargeImageSource="{DynamicResource StopImg}"
+                                  SmallImageSource="{DynamicResource StopImg}" />
+                    
+                </RibbonGroup>
             </RibbonTab>
         </Ribbon>
-        <avalonDock:DockingManager Grid.Row="1" x:Name="dockingManager">
-            <avalonDock:LayoutRoot>
-                <avalonDock:LayoutPanel Orientation="Horizontal">
-                    <avalonDock:LayoutDocumentPane>
-                        <avalonDock:LayoutDocument>
-                            <Grid x:Name="contentGrid">
-                            </Grid>
-                        </avalonDock:LayoutDocument>
-                    </avalonDock:LayoutDocumentPane>
-                    <avalonDock:LayoutAnchorablePane DockWidth="300">
-                        <avalonDock:LayoutAnchorable Title="Elements">
-                            <Grid x:Name="ToolPane"></Grid>
-                        </avalonDock:LayoutAnchorable>
-                        <avalonDock:LayoutAnchorable Title="Properties">
-                            <Grid x:Name="PropertyPane"></Grid>
-                        </avalonDock:LayoutAnchorable>
-                    </avalonDock:LayoutAnchorablePane>
+        <xcad:DockingManager Grid.Row="1" x:Name="dockingManager">
+            <xcad:DockingManager.Theme>
+                <xcad:AeroTheme/>
+            </xcad:DockingManager.Theme>
+            <xcad:LayoutRoot>
+                <xcad:LayoutPanel Orientation="Horizontal">
+                    <xcad:LayoutDocumentPane>
+                        <xcad:LayoutDocument Title="demo.xaml">
+                            <Grid x:Name="contentGrid" />
+                        </xcad:LayoutDocument>
+                    </xcad:LayoutDocumentPane>
+                    <xcad:LayoutAnchorablePane DockWidth="300">
+                        <xcad:LayoutAnchorable Title="Elements">
+                            <Grid x:Name="ToolPane" />
+                        </xcad:LayoutAnchorable>
+                        <xcad:LayoutAnchorable Title="Properties">
+                            <Grid x:Name="PropertyPane" />
+                        </xcad:LayoutAnchorable>
+                    </xcad:LayoutAnchorablePane>
 
-                </avalonDock:LayoutPanel>
-                <avalonDock:LayoutRoot.LeftSide>
-                    <avalonDock:LayoutAnchorSide>
-                        <avalonDock:LayoutAnchorGroup>
-                            <avalonDock:LayoutAnchorable Title="Autohidden Content">
-                                <TextBox/>
-                            </avalonDock:LayoutAnchorable>
-                        </avalonDock:LayoutAnchorGroup>
-                    </avalonDock:LayoutAnchorSide>
-                </avalonDock:LayoutRoot.LeftSide>
-            </avalonDock:LayoutRoot>
-        </avalonDock:DockingManager>
+                </xcad:LayoutPanel>
+                <xcad:LayoutRoot.LeftSide>
+                    <xcad:LayoutAnchorSide>
+                        <xcad:LayoutAnchorGroup>
+                            <xcad:LayoutAnchorable Title="Autohidden Content">
+                                <TextBox />
+                            </xcad:LayoutAnchorable>
+                        </xcad:LayoutAnchorGroup>
+                    </xcad:LayoutAnchorSide>
+                </xcad:LayoutRoot.LeftSide>
+            </xcad:LayoutRoot>
+        </xcad:DockingManager>
     </Grid>
 </RibbonWindow>

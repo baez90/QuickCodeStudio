@@ -61,6 +61,69 @@ namespace QuickCodeStudio.i18n.MainWindow {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New file.
+        /// </summary>
+        public static string RBNewFileLabel {
+            get {
+                return ResourceManager.GetString("RBNewFileLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run.
+        /// </summary>
+        public static string RBRunLabel {
+            get {
+                return ResourceManager.GetString("RBRunLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Properties.
+        /// </summary>
+        public static string RBShowPanelsLabel {
+            get {
+                return ResourceManager.GetString("RBShowPanelsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop.
+        /// </summary>
+        public static string RBStopLabel {
+            get {
+                return ResourceManager.GetString("RBStopLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File management.
+        /// </summary>
+        public static string RGFileMgmtHeader {
+            get {
+                return ResourceManager.GetString("RGFileMgmtHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Panels.
+        /// </summary>
+        public static string RGPanelsHeader {
+            get {
+                return ResourceManager.GetString("RGPanelsHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start/Stop.
+        /// </summary>
+        public static string RGStartHeader {
+            get {
+                return ResourceManager.GetString("RGStartHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Run.
         /// </summary>
         public static string RTRunHeader {

@@ -12,7 +12,6 @@ namespace QuickCodeStudio
     /// </summary>
     public partial class MainWindow : RibbonWindow
     {
-
         private WorkflowDesigner wd;
 
         public MainWindow()
@@ -28,39 +27,39 @@ namespace QuickCodeStudio
         private void AddDesigner()
         {
             //Create an instance of WorkflowDesigner class.
-            this.wd = new WorkflowDesigner();
+            wd = new WorkflowDesigner();
 
             //Place the designer canvas in the middle column of the grid.
-            Grid.SetColumn(this.wd.View, 0);
+            Grid.SetColumn(wd.View, 0);
 
             //Load a new Sequence as default.
-            this.wd.Load(new Sequence());
+            wd.Load(new Sequence());
 
             //Add the designer canvas to the grid.
-            contentGrid.Children.Add(this.wd.View);
+            contentGrid.Children.Add(wd.View);
         }
 
         private void RegisterMetadata()
         {
-            DesignerMetadata dm = new DesignerMetadata();
+            var dm = new DesignerMetadata();
             dm.Register();
         }
 
         private ToolboxControl GetToolboxControl()
         {
             // Create the ToolBoxControl.
-            ToolboxControl ctrl = new ToolboxControl();
+            var ctrl = new ToolboxControl();
 
             // Create a category.
-            ToolboxCategory category = new ToolboxCategory("category1");
+            var category = new ToolboxCategory("category1");
 
             // Create Toolbox items.
-            ToolboxItemWrapper tool1 =
+            var tool1 =
                 new ToolboxItemWrapper("System.Activities.Statements.Assign",
-                typeof(Assign).Assembly.FullName, null, "Assign");
+                    typeof (Assign).Assembly.FullName, null, "Assign");
 
-            ToolboxItemWrapper tool2 = new ToolboxItemWrapper("System.Activities.Statements.Sequence",
-                typeof(Sequence).Assembly.FullName, null, "Sequence");
+            var tool2 = new ToolboxItemWrapper("System.Activities.Statements.Sequence",
+                typeof (Sequence).Assembly.FullName, null, "Sequence");
 
             // Add the Toolbox items to the category.
             category.Add(tool1);
@@ -73,7 +72,7 @@ namespace QuickCodeStudio
 
         private void AddToolBox()
         {
-            ToolboxControl tc = GetToolboxControl();
+            var tc = GetToolboxControl();
             Grid.SetColumn(tc, 0);
             ToolPane.Children.Add(tc);
         }
@@ -83,6 +82,5 @@ namespace QuickCodeStudio
             Grid.SetColumn(wd.PropertyInspectorView, 2);
             PropertyPane.Children.Add(wd.PropertyInspectorView);
         }
-
     }
 }
