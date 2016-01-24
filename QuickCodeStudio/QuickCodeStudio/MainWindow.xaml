@@ -6,6 +6,8 @@
               xmlns:i18N="clr-namespace:QuickCodeStudio.i18n.MainWindow"
               xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
               xmlns:local="clr-namespace:QuickCodeStudio"
+              xmlns:components="clr-namespace:QuickCodeStudio.Components"
+              xmlns:toolbars="clr-namespace:QuickCodeStudio.Components.Toolbars"
               mc:Ignorable="d"
               Title="QuickCodeStudio" Height="800" Width="1200"
               Icon="{DynamicResource MainWindowImg}"
@@ -66,16 +68,15 @@
             <xcad:LayoutRoot>
                 <xcad:LayoutPanel Orientation="Horizontal">
                     <xcad:LayoutDocumentPane>
-                        <xcad:LayoutDocument Title="demo.xaml">
-                            <Grid x:Name="contentGrid" />
-                        </xcad:LayoutDocument>
+                        <components:WorkflowEditor Title="newFile.xaml"/>
+                    </xcad:LayoutDocumentPane>
+                    <xcad:LayoutDocumentPane>
+                        <components:WorkflowEditor Title="newFile2.xaml"/>
                     </xcad:LayoutDocumentPane>
                     <xcad:LayoutAnchorablePane DockWidth="300">
-                        <xcad:LayoutAnchorable Title="Elements">
-                            <Grid x:Name="ToolPane" />
-                        </xcad:LayoutAnchorable>
+                        <toolbars:WorkflowItemsToolbox/>
                         <xcad:LayoutAnchorable Title="Properties">
-                            <Grid x:Name="PropertyPane" />
+                            <ContentControl Content="{Binding PropertyInspectorView, Source={x:Static local:WorkflowEditorContext.Current}}"></ContentControl>
                         </xcad:LayoutAnchorable>
                     </xcad:LayoutAnchorablePane>
 

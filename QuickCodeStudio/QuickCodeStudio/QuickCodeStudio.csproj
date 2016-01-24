@@ -119,11 +119,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Components\Toolbars\WorkflowItemsToolbox.xaml.cs">
-      <DependentUpon>WorkflowItemsToolbox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Components\WorkflowEditor.xaml.cs">
-      <DependentUpon>WorkflowEditor.xaml</DependentUpon>
+    <Compile Include="Components\Toolbars\WorkflowItemsToolbox.cs" />
+    <Compile Include="Components\WorkflowEditor.cs" />
+    <Compile Include="i18n\Components\Toolbars\WorkflowItemsToolboxResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorkflowItemsToolboxResources.resx</DependentUpon>
     </Compile>
     <Compile Include="i18n\MainWindow\MainWindow.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -132,14 +133,7 @@
     </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Page Include="Components\Toolbars\WorkflowItemsToolbox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Components\WorkflowEditor.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <Compile Include="WorkflowEditorContext.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -171,6 +165,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="i18n\Components\Toolbars\WorkflowItemsToolboxResources.de-DE.resx" />
+    <EmbeddedResource Include="i18n\Components\Toolbars\WorkflowItemsToolboxResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>WorkflowItemsToolboxResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="i18n\MainWindow\MainWindow.de-DE.resx" />
     <EmbeddedResource Include="i18n\MainWindow\MainWindow.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
