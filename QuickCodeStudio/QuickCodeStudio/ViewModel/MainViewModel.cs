@@ -1,4 +1,8 @@
+using System.Windows;
+using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace QuickCodeStudio.ViewModel
 {
@@ -29,6 +33,17 @@ namespace QuickCodeStudio.ViewModel
             ////{
             ////    // Code runs "for real"
             ////}
+            
         }
+
+        public ICommand NewFileCommand => new RelayCommand(() =>
+        {
+            MessageBox.Show("Create new file");
+        });
+
+        public ICommand RunWorkflowCommand = new RelayCommand<string>(s =>
+        {
+            
+        });
     }
 }

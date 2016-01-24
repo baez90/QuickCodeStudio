@@ -5,6 +5,7 @@
               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
               xmlns:i18N="clr-namespace:QuickCodeStudio.i18n.MainWindow"
               xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+              xmlns:local="clr-namespace:QuickCodeStudio"
               mc:Ignorable="d"
               Title="QuickCodeStudio" Height="800" Width="1200"
               Icon="{DynamicResource MainWindowImg}"
@@ -29,6 +30,7 @@
                 <RibbonGroup Header="{x:Static i18N:MainWindow.RGFileMgmtHeader}">
                     
                     <RibbonButton Label="{x:Static i18N:MainWindow.RBNewFileLabel}"
+                                  Command="{Binding NewFileCommand}"
                                   LargeImageSource="{DynamicResource NewFileImg}"
                                   SmallImageSource="{DynamicResource NewFileImg}" />
                 </RibbonGroup>
